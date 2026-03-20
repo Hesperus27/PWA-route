@@ -33,7 +33,7 @@
     </div>
 
     <script>
-        // PWA Service Worker Registration
+    
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js');
         }
@@ -41,12 +41,11 @@
         function saveRoute() {
             let route = document.getElementById("route").value;
             
-            // Get existing routes or start fresh array
             let routes = JSON.parse(localStorage.getItem("iloiloRoutes")) || [];
             
             routes.push(route);
             
-            // Save back to local storage
+            
             localStorage.setItem("iloiloRoutes", JSON.stringify(routes));
             
             alert( route + " Route Saved Successfully!");
@@ -54,14 +53,13 @@
         }
 
         function displayRoutes() {
-            // Matches the alert in your screenshot
+            
             window.alert("this is the route that you choose " + "\r\n" + " thank you!");
 
             let routes = JSON.parse(localStorage.getItem("iloiloRoutes")) || [];
             let output = document.getElementById("output");
             output.innerHTML = "";
 
-            // Generating the cards seen in your UI
             routes.forEach(function(route) {
                 output.innerHTML += `
                     <div class="col-md-4 mb-3">
